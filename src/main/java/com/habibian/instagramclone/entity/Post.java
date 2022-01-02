@@ -8,29 +8,31 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 @Entity
-public class Status {
+public class Post {
 
     @Id
     @GeneratedValue
     private int id;
 
     @NotNull
-    private String statusId;
+    private String postId;
     private String userId;
     private String userName;
-    private String path;
+    private String postPath;
     private Timestamp timeStamp;
+    private int likeCount;
 
-    public Status() {
+    public Post() {
     }
 
-    public Status(int id, String statusId, String userId, String userName, String path, Timestamp timeStamp) {
+    public Post(int id, String postId, String userId, String userName, String postPath, Timestamp timeStamp, int likeCount) {
         this.id = id;
-        this.statusId = statusId;
+        this.postId = postId;
         this.userId = userId;
         this.userName = userName;
-        this.path = path;
+        this.postPath = postPath;
         this.timeStamp = timeStamp;
+        this.likeCount = likeCount;
     }
 
     public int getId() {
@@ -41,12 +43,12 @@ public class Status {
         this.id = id;
     }
 
-    public String getStatusId() {
-        return statusId;
+    public String getPostId() {
+        return postId;
     }
 
-    public void setStatusId(String statusId) {
-        this.statusId = statusId;
+    public void setPostId(String postId) {
+        this.postId = postId;
     }
 
     public String getUserId() {
@@ -65,12 +67,12 @@ public class Status {
         this.userName = userName;
     }
 
-    public String getPath() {
-        return path;
+    public String getPostPath() {
+        return postPath;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setPostPath(String postPath) {
+        this.postPath = postPath;
     }
 
     public Timestamp getTimeStamp() {
@@ -79,5 +81,13 @@ public class Status {
 
     public void setTimeStamp(Timestamp timeStamp) {
         this.timeStamp = timeStamp;
+    }
+
+    public int getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
     }
 }

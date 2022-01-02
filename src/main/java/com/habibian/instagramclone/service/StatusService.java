@@ -4,6 +4,7 @@ import com.habibian.instagramclone.entity.Status;
 import com.habibian.instagramclone.repository.StatusRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 
@@ -18,6 +19,7 @@ public class StatusService {
         this.userService = userService;
     }
 
+    @Transactional
     public Status submitDataIntoDb(Status status) {
         return statusRepo.save(status);
     }
